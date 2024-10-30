@@ -1,0 +1,25 @@
+[package]
+name = "dbtool"
+version = "0.1.0"
+description = "A Tauri App"
+authors = ["syf5sssss"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html  runtime-tokio-native-tls
+
+[lib]
+name = "dbtool_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.0.0-rc", features = [] }
+
+[dependencies]
+tauri = { version = "2.0.0-rc", features = [] }
+tauri-plugin-shell = "2.0.0-rc"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "mysql", "chrono"] }
+tokio = { version = "1", features = ["full"] }
+once_cell = "1.8.0"
+chrono = "0.4"
